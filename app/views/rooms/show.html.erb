@@ -4,3 +4,10 @@
   <li><%= @room.description %></li>
   <li><%= @room.features %></li>
 </ul>
+
+- add task link
+- edit link
+- delete room
+
+<%= link_to "Edit Details", edit_room_path(@room) %> |
+<%= link_to 'Delete Room', room_path(@room), method: :delete %>
