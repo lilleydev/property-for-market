@@ -1,10 +1,10 @@
 class RoomsController < ApplicationController
+  before_action :set_room, only: %i[show edit update]
   def new
     @room = Room.new
   end
 
   def create
-    binding.pry
     @room = current_user.rooms.build(room_params)
     if @room.save
       redirect_to room_path(@room)
@@ -17,9 +17,15 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
+  def show; end
+
   private
 
   def room_params
     params.require(:room).permit(:name, :description, :features)
+  end
+
+  def set_room
+    @room = Room.find_by(params[:id])
   end
 end
