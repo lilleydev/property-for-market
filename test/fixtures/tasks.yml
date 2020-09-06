@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room: one
+  name: MyString
+  description: MyString
+  completed: false
+
+two:
+  room: two
+  name: MyString
+  description: MyString
+  completed: false
