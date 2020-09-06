@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[show edit update]
+  before_action :set_room, only: %i[show edit update destroy]
   def new
     @room = Room.new
   end
@@ -18,6 +18,11 @@ class RoomsController < ApplicationController
   end
 
   def show; end
+
+  def destroy
+    @room.destroy
+    redirect_to rooms_path
+  end
 
   private
 
