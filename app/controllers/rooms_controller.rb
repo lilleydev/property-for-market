@@ -4,8 +4,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @room = current_user.rooms.new(room_params)
+    binding.pry
+    @room = current_user.rooms.build(room_params)
     if @room.save
       redirect_to room_path(@room)
     else
