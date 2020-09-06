@@ -1,1 +1,8 @@
 <h2> Rooms Index Page </h2>
+
+<ul>
+  <%= @rooms.each do |room| %>
+  <li><%= room.name %></li>
+
+  <% end %>
+</ul>
