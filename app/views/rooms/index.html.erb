@@ -1,8 +1,8 @@
 <h2> Rooms Index Page </h2>
 
 <ul>
-  <%= @rooms.each do |room| %>
-  <li><%= room.name %></li>
+  <% @rooms.each do |room| %>
+  <li><%= link_to room.name, room_path(room) %></li>
 
   <% end %>
 </ul>
