@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :get_room
+  before_action :set_task, %i[edit update destroy]
   def index
     @tasks = @room.tasks
   end
@@ -24,7 +25,7 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = @room.tasks.find(params[:id])
   end
 
   def get_room
