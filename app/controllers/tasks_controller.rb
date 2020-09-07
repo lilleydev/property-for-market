@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :get_room
   before_action :set_task, %i[edit update destroy]
+
   def index
     @tasks = @room.tasks
   end
