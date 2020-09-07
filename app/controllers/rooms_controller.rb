@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-      redirect_to room_path(@room)
+      redirect_to root_path
     else
       render new_room_path
     end
@@ -17,7 +17,9 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  def show; end
+  def show
+    # binding.pry
+  end
 
   def destroy
     @room.destroy

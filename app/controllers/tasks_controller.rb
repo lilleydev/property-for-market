@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :get_room
   def index
     @tasks = Task.all
   end
@@ -11,6 +12,10 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def get_room
+    @room = Room.find(params[:room_id])
   end
 
   def task_params

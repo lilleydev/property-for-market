@@ -9,5 +9,6 @@
 - edit link
 - delete room
 
+<%= link_to 'Add Task', new_rooms_tasks_path(@room) %>
 <%= link_to "Edit Details", edit_room_path(@room) %> |
 <%= link_to 'Delete Room', room_path(@room), method: :delete %>
