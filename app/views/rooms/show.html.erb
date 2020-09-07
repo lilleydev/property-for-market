@@ -1,14 +1,20 @@
 <h3><%= @room.name.capitalize %> Dashboard </h3>
 
+<h4>Description</h4>
 <ul>
   <li><%= @room.description %></li>
+</ul>
+<h4> Features:</h4>
+<ul>
   <li><%= @room.features %></li>
 </ul>
 
-<h3>Tasks to Complete </h3>
+<h3>Tasks to Do </h3>
 <ul>
   <% @room.tasks.each do |t| %>
+  <h5>Task:</h5>
   <li><%= t.name %></li>
+  <h6> Description: </h6>
   <ul>
     <li><%= t.description %> </li>
   </ul>
