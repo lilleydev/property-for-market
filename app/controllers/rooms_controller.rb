@@ -17,6 +17,20 @@ class RoomsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    respond_to do |format|
+      if @room.update(room_params)
+        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
+        format.json { render :show, status: :ok, location: @room }
+      else
+        format.html { render :edit }
+        format.json { render json: @room.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def index
     @rooms = Room.all
   end
