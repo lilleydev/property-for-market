@@ -6,10 +6,14 @@ class RoomsController < ApplicationController
 
   def create
     @room = current_user.rooms.build(room_params)
-    if @room.save
-      redirect_to root_path
-    else
-      render new_room_path
+    respond_to do |format|
+      if @room.save
+        format.html { redirect_to @room, notice: 'Room was successfully created.' }
+        format.json { render :show, status: :created, location: @room }
+      else
+        format.html { render :new }
+        format.json { render json: @room.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -33,6 +37,6 @@ class RoomsController < ApplicationController
   end
 
   def set_room
-    @room = Room.find_by(params[:id])
+    @room = Room.find(params[:id])
   end
 end

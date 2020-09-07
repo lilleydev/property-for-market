@@ -2,7 +2,8 @@
 
 <ul>
   <% @rooms.each do |room| %>
-  <li><%= link_to room.name, room_path(room) %></li>
+  <li><%= link_to "#{room.name}", room %></li>
+
 
   <% end %>
 </ul>
