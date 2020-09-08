@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :realtors
 
   root 'rooms#index'
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' },
+                     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :rooms do
     resources :tasks, except: %i[show index]
