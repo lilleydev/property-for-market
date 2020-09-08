@@ -8,19 +8,36 @@
 <ul>
   <li><%= @room.features %></li>
 </ul>
-
+<p>
+<div>
+  <%= link_to "Edit Details", edit_room_path(@room) %> |
+  <%= link_to 'Delete Room', room_path(@room), method: :delete %>
+</div>
+</p>
 <h3>Tasks to Do </h3>
-<ul>
-  <% @room.tasks.each do |t| %>
-  <h5>Task:</h5>
-  <li><%= t.name %></li>
-  <h6> Description: </h6>
-  <ul>
-    <li><%= t.description %> </li>
-  </ul>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
 
-<%= link_to 'Add Task', new_room_task_path(@room) %> |
-<%= link_to "Edit Details", edit_room_path(@room) %> |
-<%= link_to 'Delete Room', room_path(@room), method: :delete %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @room.tasks.each do |t| %>
+    <tr>
+      <td><%= t.name %></td>
+      <td><%= t.description %></td>
+      <td><%= link_to "Delete", [@room, t], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+
+<br>
+<div>
+  <%= link_to 'Add Task', new_room_task_path(@room) %> |
+
+</div>

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :get_room
-  before_action :set_task, %i[edit update destroy]
+  before_action :set_task, only: %i[edit update destroy]
 
   def index
     @tasks = @room.tasks
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to room_tasks_path(@room), notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to room_path(@room), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
