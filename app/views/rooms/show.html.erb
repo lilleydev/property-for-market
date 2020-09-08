@@ -28,6 +28,7 @@
     <tr>
       <td><%= t.name %></td>
       <td><%= t.description %></td>
+      <td><%= link_to "Edit", edit_room_task_path(@room, t)%></td>
       <td><%= link_to "Delete", [@room, t], method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
