@@ -274,7 +274,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'public_profile,email',
-                                                                          info_fields: 'email,first_name,last_name,gender,birthday,location,picture'
+                                                                          info_fields: 'email,first_name,last_name,picture'
+
+  config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], scope: 'userinfo.email,userinfo.profile'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

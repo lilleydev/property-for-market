@@ -132,6 +132,10 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (7.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-google-oauth2 (0.8.0)
+      jwt (>= 2.0)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
@@ -249,7 +253,9 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  omniauth
   omniauth-facebook
+  omniauth-google-oauth2
   pry
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
