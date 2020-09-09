@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def new
+    # binding.pry
     @comment = @room.comments.build
   end
 
@@ -30,10 +31,10 @@ class CommentsController < ApplicationController
   end
 
   def get_room
-    @room = room.find(params[:room_id])
+    @room = Room.find(params[:room_id])
   end
 
   def comment_params
-    params.require(:comment).permit(:name, :description)
+    params.require(:comment).permit(:description)
   end
 end
