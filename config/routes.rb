@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 =======
   root 'rooms#index'
   resources :comments
-  resources :realtors
+  resources :realtors, only: %i[show index create new]
   resources :users, only: [:show]
 >>>>>>> auth
 
