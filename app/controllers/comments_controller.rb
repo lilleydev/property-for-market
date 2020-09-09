@@ -1,11 +1,13 @@
 class CommentsController < ApplicationController
+  before_action :get_room
+  before_action :set_comment, only: %i[edit update destroy]
+
   def index
     @comments = @room.comments
   end
 
   def new
-    # @comment = @room.comments.build
-    @comment = Comment.new
+    @comment = @room.comments.build
   end
 
   def create
