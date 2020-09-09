@@ -3,11 +3,14 @@ Realtors:
 <div>
   <% @realtors.each do |realtor| %>
   <ul>
-    <li><%= realtor.name %>
-    <li>
+    <li><%= realtor.name %></li>
+
     <li><%= realtor.email %></li>
     <% end %>
     <ul>
 </div>
+
+
+
 
 <%= link_to "Add Realtor", new_realtor_path %>

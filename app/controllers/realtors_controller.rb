@@ -8,14 +8,10 @@ class RealtorsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    # @realtor = current_user.realtors.build(realtor_params)
-    @realtor = Realtor.new(realtor_params)
-    # @realtor.owner_id = current_user.id
-    # binding.pry
+    @realtor = current_user.realtors.build(realtor_params)
     respond_to do |format|
       if @realtor.save
-        format.html { redirect_to realtors_path, notice: 'realtor was successfully created.' }
+        format.html { redirect_to @realtor, notice: 'realtor was successfully created.' }
         format.json { render :show, status: :created, location: @realtor }
       else
         format.html { render :new }
