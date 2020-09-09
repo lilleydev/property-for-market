@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_053113) do
+ActiveRecord::Schema.define(version: 2020_09_09_172316) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "room_id", null: false
@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 2020_09_06_053113) do
   end
 
   create_table "realtors", force: :cascade do |t|
-    t.integer "owner_id", null: false
     t.string "name"
     t.string "email"
     t.integer "number"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["owner_id"], name: "index_realtors_on_owner_id"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_realtors_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_053113) do
   end
 
   add_foreign_key "comments", "rooms"
-  add_foreign_key "realtors", "owners"
+  add_foreign_key "realtors", "users"
   add_foreign_key "rooms", "users"
   add_foreign_key "tasks", "rooms"
 end
