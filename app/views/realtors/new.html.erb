@@ -1,0 +1,25 @@
+<%= form_for(@realtor) do |f| %>
+
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
+
+<div class="field">
+  <%= f.label :number %>
+  <%= f.number_field :number %>
+</div>
+
+<div class="field">
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+</div>
+
+<%= f.submit %>
+
+<% end %>
