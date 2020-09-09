@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = @room.comments.build
+    # @comment = @room.comments.build
+    @comment = Comment.new
   end
 
   def create
