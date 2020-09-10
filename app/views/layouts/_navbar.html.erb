@@ -4,7 +4,7 @@
 
   Logged in as <strong><%= current_user.email %></strong>
 
-  <%= link_to 'Home', "/users/:id" %> |
+  <%= link_to 'Home', user_path(current_user) %> |
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |
   <%= link_to 'Add Room', new_room_path %> |
   <%= link_to 'All Rooms', root_path %> |
