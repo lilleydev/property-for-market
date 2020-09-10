@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th> Task Name </th>
+    <th> Description </th>
+    <th> Owner </th>
+    <th> Volunteer to Help </th>
+
+  </tr>
+  <% @tasks.each do |t| %>
+  <tr>
+    <td> <%= t.name %> </td>
+    <td> <%= t.description %></td>
+    <td> <%= t.user.email %></td>
+    <td><%= link_to "Volunteer", task_volunteer_path(t), method: :post %></td>
+
+
+  </tr>
+  <% end %>
+</table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_172316) do
+ActiveRecord::Schema.define(version: 2020_09_10_133707) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "room_id", null: false
@@ -48,7 +48,15 @@ ActiveRecord::Schema.define(version: 2020_09_09_172316) do
     t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "needs_help"
     t.index ["room_id"], name: "index_tasks_on_room_id"
+  end
+
+  create_table "user_tasks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "task_id", null: false
+    t.index ["task_id"], name: "index_user_tasks_on_task_id"
+    t.index ["user_id"], name: "index_user_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_172316) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "provider"
     t.string "uid"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -71,4 +81,6 @@ ActiveRecord::Schema.define(version: 2020_09_09_172316) do
   add_foreign_key "realtors", "users"
   add_foreign_key "rooms", "users"
   add_foreign_key "tasks", "rooms"
+  add_foreign_key "user_tasks", "tasks"
+  add_foreign_key "user_tasks", "users"
 end

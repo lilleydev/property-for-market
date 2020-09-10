@@ -15,37 +15,17 @@
 </div>
 </p>
 <h4>Tasks to Do </h4>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
+<%= link_to 'See Detailed Task View', room_tasks_path(@room) %>
+<ul>
+  <% @room.tasks.each do |t| %>
 
-    </tr>
-  </thead>
-  <tbody>
-    <% @room.tasks.each do |t| %>
-    <tr>
-      <td><%= t.name %></td>
-      <td><%= t.description %></td>
-      <td><%= link_to "Edit", edit_room_task_path(@room, t)%></td>
-      <td><%= link_to "Delete", [@room, t], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-
-  </tbody>
-</table>
+  <li><%= t.name %></li>
 
 
-<br>
-<div>
-  <%= link_to 'Add Task', new_room_task_path(@room) %> |
 
-</div>
+  <% end %>
+</ul>
 
-<div>
-  <h3>Realtor Comments<h3>
-      * see realtor comments in table
-      * add link to add realtor comment
-      <%= link_to "Add Comment", new_comment_path %>
+<%= link_to 'Add Task', new_room_task_path(@room) %> |
+<%= link_to 'All Tasks', room_tasks_path(@room) %>
 </div>
