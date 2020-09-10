@@ -5,8 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   has_many :rooms
-  has_many :realtors
   has_many :tasks, through: :rooms
+  has_many :user_tasks
+  has_many :helped_tasks, through: :user_tasks, source: :task
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
