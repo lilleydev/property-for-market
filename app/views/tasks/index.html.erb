@@ -1,50 +1,8 @@
 Tasks Index Page
 
-<table>
-  <tr>
-    <th> Name </th>
-    <th> Description </th>
-    <th> Edit </th>
-    <th> Delete</th>
-    <th> Get Help? </th>
-
-  </tr>
-  <% @tasks.each do |t| %>
-  <tr>
-    <td> <%= t.name %> </td>
-    <td> <%= t.description %></td>
-    <td><%= link_to "Edit", edit_task_path(t)%></td>
-    <td><%= link_to "Delete", t , method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><% if t.needs_help %>
-      <%= link_to "Stop asking for Help", t, method: :patch %>
-      <% else %>
-      <%= link_to "Get Help", t, method: :patch %>
-      <% end %></td>
-
-
-  </tr>
-  <% end %>
-</table>
+<%= render 'tasks' %>
 
 
 <h1> Signed up to Help: </h1>
-<% if !@room %>
-<table>
-  <tr>
-    <th> Name </th>
-    <th> Description </th>
-    <th> Person's Contact </th>
 
-  </tr>
-  <% current_user.helped_tasks.each do |t| %>
-  <tr>
-    <td> <%= t.name %> </td>
-    <td> <%= t.description %></td>
-    <td> <%= t.user.email %></td>
-
-
-
-  </tr>
-  <% end %>
-</table>
-<%end%>
+<%= render 'help_signup' %>
