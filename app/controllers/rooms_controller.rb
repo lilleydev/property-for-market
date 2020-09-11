@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.all
+    @rooms = current_user.rooms
   end
 
   def show
