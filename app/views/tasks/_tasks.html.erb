@@ -3,6 +3,7 @@ There are no tasks to display
 <% else %>
 <table>
   <tr>
+    <th> Status </th>
     <th> Name </th>
     <th> Description </th>
     <th> Edit </th>
@@ -12,6 +13,7 @@ There are no tasks to display
   </tr>
   <% @tasks.each do |t| %>
   <tr>
+    <td><input class='toggle' type='checkbox'></td>
     <td> <%= t.name %> </td>
     <td> <%= t.description %></td>
     <td><%= link_to "Edit", edit_task_path(t)%></td>
