@@ -11,4 +11,17 @@ class Task < ApplicationRecord
   # needs_help.select do |t|
   #   t.helpers.count < 2
   # end
+
+  STATUS = {
+    incomplete: 0,
+    complete: 1
+  }.freeze
+
+  def complete?
+    status == STATUS[:complete]
+  end
+
+  def incomplete?
+    status == STATUS[:incomplete]
+  end
 end

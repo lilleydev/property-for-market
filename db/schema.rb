@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_09_13_160150) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "needs_help"
-    t.integer "status"
+    t.integer "status", default: 0
     t.index ["room_id"], name: "index_tasks_on_room_id"
   end
 
