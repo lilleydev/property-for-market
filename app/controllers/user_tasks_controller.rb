@@ -4,4 +4,6 @@ class UserTasksController < ApplicationController
     task.user_tasks.build(user: current_user)
     redirect_to tasks_path if task.save
   end
+
+  def destroy; end
 end
