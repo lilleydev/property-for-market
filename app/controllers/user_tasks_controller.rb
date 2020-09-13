@@ -12,5 +12,11 @@ class UserTasksController < ApplicationController
     redirect_to tasks_path if task.save
   end
 
-  def destroy; end
+  def destroy
+    binding.pry
+    task = Task.find_by(params[:task_id])
+    task.helpers.delete(current_user)
+
+    redirect_to tasks_path if task.save
+  end
 end
