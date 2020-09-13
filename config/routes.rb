@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: [:index]
+  post '/tasks', to: 'tasks#complete', as: 'complete'
   get '/needs_help', to: 'needs_help#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
