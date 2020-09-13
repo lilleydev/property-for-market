@@ -6,15 +6,13 @@ class UserTasksController < ApplicationController
 
   def create
     # binding.pry
-    task = Task.find_by(params[:task_id])
+    task = Task.find_by(id: params[:task_id])
     task.user_tasks.build(user: current_user)
-    # params[:email] for the helpers email ; how to pass to the task.user ??
     redirect_to tasks_path if task.save
   end
 
   def destroy
-    binding.pry
-    task = Task.find_by(params[:task_id])
+    task = Task.find_by(id: params[:task_id])
     task.helpers.delete(current_user)
 
     redirect_to tasks_path if task.save

@@ -14,10 +14,10 @@
     <td> <%= t.name %> </td>
     <td> <%= t.description %></td>
     <td> <%= t.user.email %></td>
-    <% if t.helpers.include?(current_user) %>
-    <td> Signed Up! </td>
+    <% if t.helpers.exclude?(current_user) %>
+    <td><%= link_to "Volunteer", task_volunteer_path(t), method: :post %></td>
     <% else %>
-    <td><%= link_to "Volunteer", task_help_path(t) %></td>
+    <td> Signed Up! </td>
     <% end %>
 
   </tr>
