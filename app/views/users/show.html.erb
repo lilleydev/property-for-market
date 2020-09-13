@@ -3,4 +3,8 @@ User Show Page
 <h2> Welcome </h2>
 <h2> <%= format_name(@user) %> </h2>
 <h3>You have: <%= room_count(@user) %> rooms</h3>
-<h3>use scope count to count how many rooms </h3>
+<ol>
+  <% @user.rooms.each do |room| %>
+  <li><%= room.name.capitalize %></li>
+  <% end %>
+</ol>

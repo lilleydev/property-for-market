@@ -15,11 +15,11 @@
 </div>
 </p>
 <h4>Tasks to Do </h4>
-<%= link_to 'See Detailed Task View', tasks_path %>
+
 <ul>
   <% @room.tasks.each do |t| %>
 
-  <li><%= t.name %></li>
+  <li><%= t.name %> : <%= t.description %></li>
 
 
 
