@@ -1,0 +1,12 @@
+    Wanna help out <%= @task.user.first_name %> ?
+    You can contact them at to coordinate: <%= @task.user.email %>
+
+    Please submit your email for them:
+
+    <%= link_to "Volunteer", task_volunteer_path, method: :post %>
+
+    <%= form_tag(task_volunteer_path, method: :post) do %>
+    <%= label_tag(:email) %>
+    <%= text_field_tag(:email) %>
+    <%= submit_tag("Submit") %>
+    <% end %>

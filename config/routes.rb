@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :tasks, except: %i[show], shallow: true do
       post '/user_tasks', to: 'user_tasks#create', as: 'volunteer'
+      get '/user_tasks', to: 'user_tasks#new', as: 'help'
       delete '/user_tasks', to: 'user_tasks#destroy', as: 'cancel'
     end
   end
