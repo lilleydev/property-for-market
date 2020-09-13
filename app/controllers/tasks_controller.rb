@@ -40,7 +40,7 @@ class TasksController < ApplicationController
 
     else
       @task.update(needs_help: !@task.needs_help)
-      redirect_to room_tasks_path(@task.room), notice: 'Good job asking for help!'
+      redirect_to tasks_path, notice: 'Good job asking for help!'
 
   end
   end
@@ -53,10 +53,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+    redirect_to tasks_path
+  end
+
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = Task.find_by(id: params[:id])
   end
 
   def get_room
