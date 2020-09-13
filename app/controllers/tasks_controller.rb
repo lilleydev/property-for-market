@@ -40,7 +40,7 @@ class TasksController < ApplicationController
 
     else
       @task.update(needs_help: !@task.needs_help)
-      redirect_to room_tasks_path(@task.room), notice: 'Good job asking for help!'
+      redirect_to tasks_path, notice: 'Good job asking for help!'
 
   end
   end
