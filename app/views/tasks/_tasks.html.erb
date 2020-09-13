@@ -13,7 +13,15 @@ There are no tasks to display
   </tr>
   <% @tasks.each do |t| %>
   <tr>
-    <td><input class='toggle' type='checkbox'></td>
+    <td>
+      <%= form_for(t)  do |f| %>
+      <% f.label 'Status'%>
+      <%= f.check_box :status %>
+      <% end %>
+
+
+    </td>
+
     <td> <%= t.name %> </td>
     <td> <%= t.description %></td>
     <td><%= link_to "Edit", edit_task_path(t)%></td>
