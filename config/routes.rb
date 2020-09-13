@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' },
                      controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root 'rooms#index'
-
+  # devise_for :users, path_prefix: 'd'
   resources :users, only: [:show]
+
+  # match 'users/:id', to: 'users#show', via: 'get'
+  root 'rooms#index'
 
   resources :rooms do
     resources :tasks, except: %i[show], shallow: true do
