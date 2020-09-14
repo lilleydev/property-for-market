@@ -23,9 +23,9 @@ Specs:
   - Task: has many helpers, through user_tasks.
   - User: has many helped_tasks, through user_tasks.
 
-- [] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+- [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
 
-  - The User can sign up to helped_task
+  - The User can sign up to another user's task they requested help for.
 
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
@@ -48,8 +48,11 @@ Specs:
   - '/rooms/:id/tasks'
 
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- '/rooms/:id/task
 
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
+
+  - '/layouts/errors' displays errors if the params are not met.
 
 Confirm:
 
