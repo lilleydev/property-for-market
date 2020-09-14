@@ -1,8 +1,11 @@
 <h4> Rooms New Page </h4>
 
+<%= render partial: 'layouts/errors', locals: {object: @room}  %>
 
 
-<%= form_for(@room) do |f| %>
+
+
+<%= form_for @room do |f| %>
 
 <div class="field">
   <%= f.label :name %>
