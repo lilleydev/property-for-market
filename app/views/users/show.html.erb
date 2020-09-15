@@ -1,13 +1,18 @@
-User Show Page
-
-<h2> Welcome </h2>
-<h2> <%= format_name(@user) %> </h2>
-<h3>You have: <%= room_count(@user) %> rooms</h3>
-<ol>
-  <% @user.rooms.each do |room| %>
-  <li><%= room.name.capitalize %></li>
-  <% end %>
-</ol>
-
-<h3> Profile Settings </h3>
-<%= link_to 'Change your passowrd', edit_user_registration_path %>
+<div class="cards">
+  <div class="card">
+    <h2> Welcome </h2>
+    <h2> <%= format_name(@user) %> </h2>
+  </div>
+  <div class='card'>
+    <h3>You have: <%= room_count(@user) %> rooms</h3>
+    <ol>
+      <% @user.rooms.each do |room| %>
+      <li><%= room.name.capitalize %></li>
+      <% end %>
+    </ol>
+  </div>
+  <div class='card'>
+    <h3> Profile Settings </h3>
+    <%= link_to 'Change your passowrd', edit_user_registration_path %>
+  </div>
+</div>
