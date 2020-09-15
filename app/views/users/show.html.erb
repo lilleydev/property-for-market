@@ -1,10 +1,41 @@
-User Show Page
+<div id="container">
 
-<h2> Welcome </h2>
-<h2> <%= format_name(@user) %> </h2>
-<h3>You have: <%= room_count(@user) %> rooms</h3>
-<ol>
-  <% @user.rooms.each do |room| %>
-  <li><%= room.name.capitalize %></li>
-  <% end %>
-</ol>
+  <div id="header">
+    <h2> Welcome </h2>
+    <h2> <%= format_name(@user) %> </h2>
+  </div>
+
+  <div id="content">
+
+    <div id="nav">
+      <h3>Quick Links</h3>
+      <p><%= link_to 'Add Room', new_room_path %></p>
+      <p><%= link_to 'All Rooms', root_path %></p>
+      <p><%= link_to 'My Tasks', tasks_path %></p>
+      <p><%= link_to 'Needs Help', "/needs_help" %></p>
+    </div>
+
+    <div id="main">
+      <h3>You have: <%= room_count(@user) %> rooms</h3>
+
+
+      <% @user.rooms.each do |room| %>
+
+      <p><%= room.name.capitalize %></p>
+
+      <% end %>
+
+
+    </div>
+
+    <div id="profile">
+      <h3> Profile Settings </h3>
+      <%= link_to 'Change your passowrd', edit_user_registration_path %>
+
+    </div>
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2020 BJ Lilley.
+  </div>
+</div>

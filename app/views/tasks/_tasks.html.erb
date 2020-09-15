@@ -1,44 +1,50 @@
-<% if !@tasks %>
-There are no tasks to display
-<% else %>
-<table>
-  <tr>
-    <th> Status </th>
-    <th> Room </th>
-    <th> Name </th>
-    <th> Description </th>
-    <th> Edit </th>
-    <th> Delete</th>
-    <th> Get Help? </th>
+<div id='header'>
+  <h4>My Tasks:</h4>
+</div>
 
-  </tr>
-  <% @tasks.each do |t| %>
-  <tr>
-    <td>
-      <%= form_for(t)  do |f| %>
-      <% f.label 'Status'%>
-      <%= f.check_box :status %>
-      <% end %>
+<div id="container">
+  <% if !@tasks %>
+  There are no tasks to display
+  <% else %>
+  <table>
+    <tr>
+      <th> Status </th>
+      <th> Room </th>
+      <th> Name </th>
+      <th> Description </th>
+      <th> Edit </th>
+      <th> Delete</th>
+      <th> Get Help? </th>
 
-
-    </td>
-
-    <td> <%= t.room.name %> </td>
-    <td> <%= t.name %> </td>
-    <td> <%= t.description %></td>
-    <td><%= link_to "Edit", edit_task_path(t)%></td>
-    <td><%= link_to "Delete", t , method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><% if t.needs_help %>
-      <%= link_to "Stop asking for Help", t, method: :patch %>
-      <% else %>
-      <%= link_to "Get Help", t, method: :patch %>
-      <% end %></td>
+    </tr>
+    <% @tasks.each do |t| %>
+    <tr>
+      <td>
+        <%= form_for(t)  do |f| %>
+        <% f.label 'Status'%>
+        <%= f.check_box :status %>
+        <% end %>
 
 
-  </tr>
+      </td>
 
-  <% end %>
+      <td> <%= t.room.name %> </td>
+      <td> <%= t.name %> </td>
+      <td> <%= t.description %></td>
+      <td><%= link_to "Edit", edit_task_path(t)%></td>
+      <td><%= link_to "Delete", t , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><% if t.needs_help %>
+        <%= link_to "Stop asking for Help", t, method: :patch %>
+        <% else %>
+        <%= link_to "Get Help", t, method: :patch %>
+        <% end %></td>
 
 
-</table>
-<%end %>
+    </tr>
+
+    <% end %>
+
+
+  </table>
+  <%end %>
+</div>

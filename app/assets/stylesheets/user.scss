@@ -1,3 +1,55 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+a {
+  text-decoration: none;
+}
+
+#header {
+  background-color: #c8d5b9;
+  font-family: verdana;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  margin: 2% auto;
+}
+
+#content {
+  padding: 10px;
+}
+
+#nav {
+  width: 160px;
+  float: left;
+}
+
+#main {
+  width: 300px;
+  float: left;
+}
+
+#profile {
+  width: 300px;
+  float: right;
+}
+
+#footer {
+  clear: both;
+  padding: 10px;
+  background-color: #999999;
+  color: white;
+  text-align: right;
+}
+
+h3 {
+  color: #086972;
+  font-family: verdana;
+  font-size: 100%;
+}
+
+p {
+  color: #1a1a2e;
+  font-family: verdana;
+  font-size: 100%;
+}

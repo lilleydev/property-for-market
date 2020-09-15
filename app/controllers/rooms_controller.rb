@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[show edit update destroy]
+  before_action :set_room, :user_room, only: %i[show edit update destroy]
   def new
     @room = Room.new
   end
@@ -35,9 +35,7 @@ class RoomsController < ApplicationController
     @rooms = current_user.rooms
   end
 
-  def show
-    # binding.pry
-  end
+  def show; end
 
   def destroy
     @room.destroy
@@ -52,5 +50,9 @@ class RoomsController < ApplicationController
 
   def set_room
     @room = Room.find(params[:id])
+  end
+
+  def user_room
+    redirect_to root_path, notice: 'Sorry, you can not view other user rooms.' if current_user != @room.user
   end
 end
