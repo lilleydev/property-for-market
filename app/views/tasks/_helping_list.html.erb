@@ -3,11 +3,12 @@
 </div>
 <% @tasks.each do |task| %>
 <% task.helpers.each do |helper| %>
-<% unless helper.blank? %>
 <div class='card'>
-  <%= helper.first_name %>
-  <%= helper.last_name %>
-  <%= helper.email %>
+  <% unless helper.blank? %>
+  <h4><%= task.name %></h4>
+  <p><%= helper.first_name %>
+    <%= helper.last_name %></p>
+  <p><%= helper.email %></p>
 </div>
 <% end %>
 <% end %>
