@@ -1,24 +1,26 @@
-<% if !@room %>
-<table>
-  <tr>
-    <th> Name </th>
-    <th> Description </th>
-    <th> Person's Contact </th>
-    <th> Cancel</th>
+<div id="container">
+  <% if !@room %>
+  <table>
+    <tr>
+      <th> Name </th>
+      <th> Description </th>
+      <th> Person's Contact </th>
+      <th> Cancel</th>
 
 
-  </tr>
-  <% current_user.helped_tasks.each do |t| %>
-  <tr>
-    <td> <%= t.name %> </td>
-    <td> <%= t.description %></td>
-    <td> <%= t.user.email %></td>
-    <td> <%= link_to "Can't make it", task_cancel_path(t), method: :delete %></td>
+    </tr>
+    <% current_user.helped_tasks.each do |t| %>
+    <tr>
+      <td> <%= t.name %> </td>
+      <td> <%= t.description %></td>
+      <td> <%= t.user.email %></td>
+      <td> <%= link_to "Can't make it", task_cancel_path(t), method: :delete %></td>
 
 
 
 
-  </tr>
-  <% end %>
-</table>
-<%end%>
+    </tr>
+    <% end %>
+  </table>
+  <%end%>
+</div>
