@@ -3,7 +3,6 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy]
 
   def index
-    binding.pry
     @tasks = if @room
                @room.tasks
              else

@@ -1,3 +1,14 @@
 <div id='header'>
   <h4>Helping Me:</h4>
 </div>
+<% @tasks.each do |task| %>
+<% task.helpers.each do |helper| %>
+<% unless helper.blank? %>
+<div class='card'>
+  <%= helper.first_name %>
+  <%= helper.last_name %>
+  <%= helper.email %>
+</div>
+<% end %>
+<% end %>
+<% end %>
