@@ -15,3 +15,61 @@
   border: solid #6e6d6d 2px;
   border-radius: 2em;
 }
+
+a {
+  text-decoration: none;
+}
+
+#container {
+  background-color: white;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  background-color: #c8d5b9;
+  font-family: verdana;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+#content {
+  padding: 10px;
+}
+
+#nav {
+  width: 160px;
+  float: left;
+}
+
+#main {
+  width: 300px;
+  float: left;
+}
+
+#profile {
+  width: 300px;
+  float: right;
+}
+
+#footer {
+  clear: both;
+  padding: 10px;
+  background-color: #999999;
+  color: white;
+  text-align: right;
+}
+
+h3 {
+  color: #086972;
+  font-family: verdana;
+  font-size: 100%;
+}
+
+p {
+  color: #1a1a2e;
+  font-family: verdana;
+  font-size: 100%;
+}
