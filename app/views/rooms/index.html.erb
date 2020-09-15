@@ -1,10 +1,14 @@
-<h2> Rooms Dashboard </h2>
+<div id='header'>
+  <h3>Rooms Dashboard</h3>
+</div>
 
-<ul>
-  <% @rooms.each do |room| %>
-  <li><%= link_to "#{room.name.capitalize}", room %></li>
 
-  <% end %>
-</ul>
 
-<%= link_to 'Add Room', new_room_path %>
+<% @rooms.each do |room| %>
+<div class='card'>
+  <p><%= link_to "#{room.name.capitalize}", room %></p>
+</div>
+<% end %>
+
+
+<p><%= link_to 'Add Room', new_room_path %></p>
