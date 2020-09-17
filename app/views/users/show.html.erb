@@ -11,7 +11,6 @@
       <h3>Quick Links</h3>
       <p><%= link_to 'Add Room', new_room_path %></p>
       <p><%= link_to 'All Rooms', root_path %></p>
-      <p><%= link_to 'My Tasks', tasks_path %></p>
       <p><%= link_to 'Needs Help', "/needs_help" %></p>
     </div>
 
@@ -34,6 +33,13 @@
 
     </div>
   </div>
+
+  <div class='block'>
+    <%= render 'tasks/help_signup' %>
+
+  </div>
+
+
 
   <div id="footer">
     Copyright &copy; 2020 BJ Lilley.
