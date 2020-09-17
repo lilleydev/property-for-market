@@ -7,6 +7,7 @@
 
   </tr>
   <% @tasks.each do |t| %>
+
   <tr>
     <% if t.user == current_user %>
     <td> Your task for <%= t.name %> is displayed for others to sign up!</td>
