@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :get_room
-  before_action :set_task, only: %i[edit update destroy]
+  before_action :get_room, except: %i[update destroy]
+  before_action :set_task, only: %i[edit update destroy show]
 
   def index
     @tasks = if @room
@@ -31,14 +31,15 @@ class TasksController < ApplicationController
 
   def update
     if params[:task]
-
       if @task.update(task_params)
-        redirect_to room_tasks_path(@room), notice: 'Task was successfully updated.'
+        @room = Room.find_by(id: @task[:room_id]) if params[:task]
+        redirect_to room_path(@room), notice: 'Task was successfully updated.'
       else
         render :edit
-      end
+        end
 
     else
+      get_room
       @task.update(needs_help: !@task.needs_help)
       redirect_to tasks_path, notice: 'Good job asking for help!'
 
@@ -46,16 +47,15 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    # binding.pry
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_path, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to room_path(@task.room), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-  def complete
-    redirect_to tasks_path
-  end
+  def show; end
 
   private
 
