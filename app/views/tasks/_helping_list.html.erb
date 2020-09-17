@@ -1,15 +1,17 @@
+<% if current_user.helpers.count > 0 %>
 <div id='header'>
   <h4>Helping Me:</h4>
 </div>
 <% @tasks.each do |task| %>
 <% task.helpers.each do |helper| %>
 <div class='card'>
-  <% unless helper.blank? %>
+
   <h4><%= task.name %></h4>
   <p><%= helper.first_name %>
     <%= helper.last_name %></p>
   <p><%= helper.email %></p>
 </div>
+
 <% end %>
 <% end %>
 <% end %>

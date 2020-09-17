@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :tasks, through: :rooms
   has_many :user_tasks
   has_many :helped_tasks, through: :user_tasks, source: :task
+  has_many :helpers, through: :tasks
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
