@@ -34,6 +34,7 @@ Specs:
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 
   - '/needs_help' is available for users to access the list of tasks that other user's need help with.
+  - calls scope method in NeedsHelpController and uses on the 'needs_help/index'
 
 - [x] Include signup: DEVISE
 
@@ -41,11 +42,11 @@ Specs:
 
 - [x] Include logout: DEVISE
 
-- [x] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth) : Google-OAuth2
 
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 
-  - '/rooms/:id/tasks'
+  - '/rooms/:id/tasks' : index
 
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - '/rooms/:id/task
