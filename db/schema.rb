@@ -10,26 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_160150) do
-
-  create_table "comments", force: :cascade do |t|
-    t.integer "room_id", null: false
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_comments_on_room_id"
-  end
-
-  create_table "realtors", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.integer "number"
-    t.integer "rating"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_realtors_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_09_17_032912) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
@@ -78,8 +59,6 @@ ActiveRecord::Schema.define(version: 2020_09_13_160150) do
     t.index ["uid"], name: "index_users_on_uid"
   end
 
-  add_foreign_key "comments", "rooms"
-  add_foreign_key "realtors", "users"
   add_foreign_key "rooms", "users"
   add_foreign_key "tasks", "rooms"
   add_foreign_key "user_tasks", "tasks"
