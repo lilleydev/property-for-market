@@ -4,7 +4,7 @@
     <th> Description </th>
     <th> Owner </th>
     <th> Volunteer to Help </th>
-    <th> Need help by: </th>
+
 
   </tr>
   <% @tasks.each do |t| %>
@@ -17,16 +17,11 @@
     <td> <%= t.description %></td>
     <td> <%= t.user.email %></td>
     <% if t.helpers.exclude?(current_user) %>
-    <td><%= link_to "Help Out", task_help_path(t) %></td>
+    <td><%= link_to "Help Out", task_help_path(t), method: :post %></td>
     <% else %>
     <td> Signed Up! </td>
     <% end %>
-    <td>
-      date
 
-
-
-    </td>
   </tr>
   <% end %>
   <% end %>
