@@ -39,10 +39,10 @@
       <td>
 
         <% @usertasks.each do |task| %>
-        <%= form_with model: task do |f| %>
-        <%= f.label :finish_by %>
-        <%= f.date_select :finish_by %>
-        <%= f.submit %>
+        <% form_tag(task_volunteer_path(task), method: 'post') do %>
+        <%= label_tag(:finish_by) %>
+        <%= select_date Date.today, prefix: :finish_by) %>
+        <%= submit_tag('Submit')%>
         <% end %>
         <% end %>
       </td>
