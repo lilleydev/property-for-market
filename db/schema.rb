@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_221410) do
+ActiveRecord::Schema.define(version: 2020_09_18_161323) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
@@ -31,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_221410) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "needs_help"
     t.integer "status", default: 0
+    t.integer "category_id"
     t.index ["room_id"], name: "index_tasks_on_room_id"
   end
 
@@ -38,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_221410) do
     t.integer "user_id", null: false
     t.integer "task_id", null: false
     t.datetime "created_at"
-    t.datetime "finish_by"
+    t.string "instructions"
     t.index ["task_id"], name: "index_user_tasks_on_task_id"
     t.index ["user_id"], name: "index_user_tasks_on_user_id"
   end
