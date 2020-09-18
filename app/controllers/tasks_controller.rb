@@ -3,11 +3,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy show]
 
   def index
-    @tasks = if @room
-               @room.tasks
-             else
-               current_user.tasks
-             end
+    # binding.pry
+    @tasks = @room.tasks
+    @usertasks = @tasks.needs_help
   end
 
   def new
@@ -41,7 +39,7 @@ class TasksController < ApplicationController
     else
       get_room
       @task.update(needs_help: !@task.needs_help)
-      redirect_to tasks_path, notice: 'Good job asking for help!'
+      redirect_to root_path, notice: 'Good job asking for help!'
 
   end
   end
