@@ -2,18 +2,13 @@ class UserTasksController < ApplicationController
   def new
     task = Task.find_by(params[:task_id])
     task.user_tasks
-    render '/needs_help/new.html'
+    redirect_to '/needs_help'
   end
 
   def create
-    binding.pry
-    if params[:finish_by]
-      UserTask.find_by(id:)
-    else
-      task = Task.find_by(id: params[:task_id])
-      task.user_tasks.build(user: current_user)
-      redirect_to user_path(current_user) if task.save
-    end
+    task = Task.find_by(id: params[:task_id])
+    task.user_tasks.build(user: current_user)
+    redirect_to user_path(current_user) if task.save
   end
 
   def destroy
@@ -23,6 +18,15 @@ class UserTasksController < ApplicationController
     redirect_to user_path(current_user) if task.save
   end
 
+  def update
+    usertask = UserTask.find_by(id: params[:id])
+    if usertask.update(user_task_params)
+      redirect_to room_tasks_path(usertask.task.room)
+    else
+      redirect_to room_tasks_path(usertask.task.room)
+    end
+  end
+
   private
 
   def set_task
@@ -30,6 +34,6 @@ class UserTasksController < ApplicationController
   end
 
   def user_task_params
-    params.require(:user_task).permit(:finish_by)
+    params.require(:user_task).permit(:instructions)
   end
 end
