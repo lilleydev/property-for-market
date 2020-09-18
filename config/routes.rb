@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   root 'rooms#index'
 
+  patch '/user_tasks/:id', to: 'user_tasks#update', as: 'user_task'
+
   resources :rooms do
     resources :tasks, shallow: true do
       post '/user_tasks', to: 'user_tasks#create', as: 'volunteer'
