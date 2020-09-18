@@ -1,12 +1,11 @@
-    Wanna help out <%= @task.user.first_name %> ?
-    You can contact them at to coordinate: <%= @task.user.email %>
+    <p>Need some help for <%= @task.name %> ? </p>
+    <p>When do you need it for?</p>
 
-    Please submit your email for them:
+    <%= form_for(@task) do |f| %>
+    <%= f.label :finish_by %>
+    <%= f.datetime_select :finish_by %>
+    <%= f.submit %>
+
 
     <%= link_to "Volunteer", task_volunteer_path, method: :post %>
-
-    <%= form_tag(task_volunteer_path, method: :post) do %>
-    <%= label_tag(:email) %>
-    <%= text_field_tag(:email) %>
-    <%= submit_tag("Submit") %>
-    <% end %>
+    <td><%= link_to "Volunteer", task_volunteer_path(t), method: :post %></td>
