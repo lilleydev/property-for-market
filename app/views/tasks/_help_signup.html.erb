@@ -9,6 +9,7 @@
       <th> Description </th>
       <th> Person's Contact </th>
       <th> Cancel</th>
+      <th> Instructions </th>
 
 
     </tr>
@@ -18,7 +19,13 @@
       <td> <%= t.description %></td>
       <td> <%= t.user.email %></td>
       <td> <%= link_to "Can't make it", task_cancel_path(t), method: :delete %></td>
+      <td>
 
+        <%= t.user_tasks.find_by(task_id: t.id).instructions? ?  t.user_tasks.find_by(task_id: t.id).instructions : "N/A" %>
+
+
+
+      </td>
 
 
 
