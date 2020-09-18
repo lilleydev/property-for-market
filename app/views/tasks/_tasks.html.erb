@@ -15,7 +15,6 @@
       <th> Edit </th>
       <th> Delete</th>
       <th> Get Help? </th>
-      <th> When do you need help by? </th>
 
     </tr>
     <% @tasks.each do |t| %>
@@ -36,16 +35,7 @@
         <%= link_to "Get Help", t, method: :patch %>
         <% end %></td>
 
-      <td>
 
-        <% @usertasks.each do |task| %>
-        <% form_tag(task_volunteer_path(task), method: 'post') do %>
-        <%= label_tag(:finish_by) %>
-        <%= select_date Date.today, prefix: :finish_by) %>
-        <%= submit_tag('Submit')%>
-        <% end %>
-        <% end %>
-      </td>
       <% end %>
     </tr>
 
