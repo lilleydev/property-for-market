@@ -6,9 +6,14 @@ class UserTasksController < ApplicationController
   end
 
   def create
-    task = Task.find_by(id: params[:task_id])
-    task.user_tasks.build(user: current_user)
-    redirect_to user_path(current_user) if task.save
+    binding.pry
+    if params[:finish_by]
+      UserTask.find_by(id:)
+    else
+      task = Task.find_by(id: params[:task_id])
+      task.user_tasks.build(user: current_user)
+      redirect_to user_path(current_user) if task.save
+    end
   end
 
   def destroy
