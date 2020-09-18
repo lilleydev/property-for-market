@@ -3,13 +3,19 @@
   <h4>Helping Me:</h4>
 </div>
 <% @tasks.each do |task| %>
-<% task.helpers.each do |helper| %>
+<% task.helpers.each.with_index do |helper, i| %>
 <div class='card'>
 
   <h4><%= task.name %></h4>
   <p><%= helper.first_name %>
     <%= helper.last_name %></p>
   <p><%= helper.email %></p>
+  <%= form_with model: @usertasks[i] do |f| %>
+  <%= f.label :instructions %>
+  <%= f.text_field :instructions %>
+  <%= @message %>
+  <%= submit_tag('Submit')%>
+  <% end %>
 </div>
 
 <% end %>
