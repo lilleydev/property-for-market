@@ -3,9 +3,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy show]
 
   def index
-    # binding.pry
     @tasks = @room.tasks
-    @usertasks = @tasks.needs_help
+    @usertasks = @tasks.map { |task| task.user_tasks }.flatten
   end
 
   def new
@@ -45,7 +44,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @task.destroy
     respond_to do |format|
       format.html { redirect_to room_path(@task.room), notice: 'Task was successfully destroyed.' }
