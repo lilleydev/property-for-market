@@ -15,6 +15,7 @@
       <th> Edit </th>
       <th> Delete</th>
       <th> Get Help? </th>
+      <th> When do you need help by? </th>
 
     </tr>
     <% @tasks.each do |t| %>
@@ -27,15 +28,26 @@
       <td><%= link_to "Edit", edit_task_path(t)%></td>
       <td><%= link_to "Delete", t , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <td><% if t.needs_help %>
+
+
+
         <%= link_to "Stop asking for Help", t, method: :patch %>
         <% else %>
         <%= link_to "Get Help", t, method: :patch %>
         <% end %></td>
 
+      <td>
 
+        <% @usertasks.each do |task| %>
+        <%= form_with model: task do |f| %>
+        <%= f.label :finish_by %>
+        <%= f.date_select :finish_by %>
+        <%= f.submit %>
+        <% end %>
+        <% end %>
+      </td>
+      <% end %>
     </tr>
-
-    <% end %>
 
 
   </table>
