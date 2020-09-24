@@ -15,11 +15,10 @@ class TasksController < ApplicationController
     @task = @room.tasks.build(task_params)
     respond_to do |format|
       if @task.save
-        format.html { redirect_to room_path(@room), notice: 'Task was successfully created.' }
+        format.html { redirect_to room_path(@room), notice: 'Task was successfully created!' }
         format.json { render room_path(@room), status: :created, location: @task }
       else
         format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
    end
     end
   end

@@ -12,7 +12,6 @@ class RoomsController < ApplicationController
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -26,7 +25,6 @@ class RoomsController < ApplicationController
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
   end
