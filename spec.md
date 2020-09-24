@@ -10,7 +10,7 @@ Specs:
 
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
 
-  - Task, belong to User.
+  - Task, belongs to User.
   - Room, belongs to User.
 
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
@@ -25,7 +25,7 @@ Specs:
 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
 
-  - The User can sign up to another user's task they requested help for.
+  - The User can submit instructions for the task helper.
 
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
@@ -49,7 +49,8 @@ Specs:
   - '/rooms/:id/tasks' : index
 
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-- '/rooms/:id/task
+
+  - '/rooms/:id/task/new
 
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
