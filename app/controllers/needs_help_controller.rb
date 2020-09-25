@@ -1,12 +1,17 @@
 class NeedsHelpController < ApplicationController
+  before_action :set_tasks
   def index
     if params[:name]
-      @tasks = Task.needs_help
       @search = @tasks.where('name LIKE ?', "%#{params[:name]}%")
     else
-      @tasks = Task.needs_help
 
       @usertask = UserTask.find_by(id: params[:id])
     end
+  end
+
+  private
+
+  def set_tasks
+    @tasks = Task.needs_help
   end
 end
