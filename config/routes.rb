@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   end
 
   get '/needs_help', to: 'needs_help#index'
-  # get '/help_out', to: 'needs_help#new'
 end
