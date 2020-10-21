@@ -3,8 +3,16 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy show]
 
   def index
+    # binding.pry
+    if params[:id]
+      user = User.find_by(id: params[:id])
+      @tasks = user.tasks
+    @usertasks = @tasks.map { |task| task.user_tasks }.flatten
+
+    else 
     @tasks = @room.tasks
     @usertasks = @tasks.map { |task| task.user_tasks }.flatten
+    end 
   end
 
   def new
