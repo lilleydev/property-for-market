@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/users/:id/tasks', to: 'tasks#index', as: 'users_tasks'
   get '/needs_help', to: 'needs_help#index'
 end
